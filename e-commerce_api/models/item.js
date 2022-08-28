@@ -11,7 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Item.belongsTo(models.Cart)
+     
+      Item.hasMany(models.Cart, {
+        onDelete: 'cascade', hooks: true
+      })
     }
   }
   Item.init({
@@ -24,7 +27,8 @@ module.exports = (sequelize, DataTypes) => {
     like: {
       type: DataTypes.INTEGER,
       defaultValue: 0
-    }
+    },
+    image: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Item',
