@@ -7,6 +7,13 @@ var usersRouter = require('./routes/users');
 var cartRouter = require('./routes/carts');
 var itemRouter = require('./routes/items');
 const fileUpload = require('express-fileupload');
+const mongoose = require('mongoose');
+
+main().catch(err => console.log(err));
+
+async function main() {
+  await mongoose.connect('mongodb://localhost:27017/ecommercedb');
+}
 
 var app = express();
 

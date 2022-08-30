@@ -6,6 +6,7 @@ const { Response} = require('../helpers/util');
 /* GET users listing. */
 router.get('/', async function (req, res, next) {
   try {
+    
     const data = await models.Cart.findAll({
       include: models.Item
     })
@@ -21,7 +22,11 @@ router.get('/', async function (req, res, next) {
 router.post('/', async function (req, res, next) {
   try {
     const { ItemId } = req.body
-    const data = await models.Cart.create({ ItemId }, { 
+    const where = { id : ItemId };
+    const dataId = await models.Item.findOne({where : where})
+    const price = dataId.dataValues.price;
+    const qty = 1;
+    const data = await models.Cart.create({ ItemId, total_harga: qty * price, harga_item: price }, { 
       individualHooks: true
     })
     res.json(new Response(data))
@@ -34,13 +39,19 @@ router.post('/', async function (req, res, next) {
 router.put('/:id', async function (req, res, next) {
   try {
     const { qty } = req.body
+    const id = req.params.id
+    const where = { id };
+    const dataId = await models.Item.findOne({where : where})
+    const price = dataId.dataValues.price;
     const data = await models.Cart.update({
-      qty
+      qty,
+      total_harga: qty * price, 
+      harga_item: price
     }, { 
       individualHooks: true 
     }, {
       where: {
-        id: req.params.id
+        id
       },
       returning: true,
       plain: true

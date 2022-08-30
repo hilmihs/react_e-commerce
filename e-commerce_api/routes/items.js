@@ -17,15 +17,22 @@ router.get('/', async function (req, res, next) {
 
 router.post('/', function (req, res, next) {
 
-    // let gambar;
-    // let uploadPath;
-    // if (!req.files || Object.keys(req.files).length === 0) {
-    //     return res.status(400).send('No files were uploaded.');
-    // }
-    // gambar = req.files.gambar;
-    // const image = `A${Date.now()}-${gambar.name}`
-    // uploadPath = path.join(__dirname, '/../public', 'gambar', image);
-    // gambar.mv(uploadPath, function (err) {
+    let gambar;
+    let uploadPath;
+    if (!req.files || Object.keys(req.files).length === 0) {
+        return res.status(400).send('No files were uploaded.');
+    }
+    gambar = req.files.gambar;
+    const image = `A${Date.now()}-${gambar.name}`
+    uploadPath = path.join(__dirname, '/../public', 'gambar', image);
+    uploadPathReact = path.join(__dirname, '/../../e-commerce_app/public/pictures/', 'gambar', image);
+    gambar.mv(uploadPathReact, function (err) {
+        if (err)
+        console.log('error upload photo to react', err)
+    })
+    gambar.mv(uploadPath, function (err) {
+        if (err)
+        console.log('error upload photo to API', err)
         const like = 0
         const { title, rate, description, price, brand, detail_product, image } = req.body
         models.Item.create(
@@ -38,7 +45,7 @@ router.post('/', function (req, res, next) {
             res.status(500).json(new Response(e, false))
         })
 
-   // });
+   });
 
 })
 

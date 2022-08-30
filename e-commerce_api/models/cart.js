@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { sequelize } = require('.');
 module.exports = (sequelize, DataTypes) => {
   class Cart extends Model {
     /**
@@ -31,11 +32,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'Cart',
   });
-//   Cart.afterCreate(async (cart, options) => {
-//     console.log('cart', cart)
-//     console.log('models', sequelize.models.Item)
-//     cart.harga_item = sequelize.models.Item.price
-//     cart.total_harga = cart.qty * cart.harga_item
 //     sequelize.query(`
 //     CREATE OR REPLACE FUNCTION update_harga() RETURNS TRIGGER AS $set_total_harga$
 //     DECLARE
@@ -44,20 +40,32 @@ module.exports = (sequelize, DataTypes) => {
 //     SELECT price INTO harga FROM "Items" WHERE id = NEW."ItemId";
 //     NEW.harga_item := harga;
 //     NEW.total_harga := NEW.qty * harga;
-//     
 //     RETURN NEW;
 // END
+
 // $set_total_harga$ LANGUAGE plpgsql;
 
 // CREATE TRIGGER set_total_harga
 // AFTER INSERT OR UPDATE OR DELETE ON "Carts"
 //     FOR EACH ROW EXECUTE FUNCTION update_harga();
 //     `)
-//   });
 
-  return Cart;
-};
+//     sequelize.query(`
+// CREATE OR REPLACE FUNCTION update_harga() RETURNS TRIGGER AS $set_total_harga$
+//     DECLARE
+//     harga NUMERIC;
+// BEGIN
+// SELECT item.price INTO harga FROM "Items" item INNER JOIN "Carts" cart ON cart."ItemId" = item.id;
+//     NEW.harga_item := harga;
+//     NEW.total_harga := NEW.qty * harga;
+//     RETURN NEW;
+// END
 
+// $set_total_harga$ LANGUAGE plpgsql;
+
+// CREATE TRIGGER set_total_harga
+// AFTER INSERT OR UPDATE OR DELETE ON "Carts"
+//     FOR EACH ROW EXECUTE FUNCTION update_harga();`)
 
 // hooks: {
 //   afterCreate: (instance, options) => {
@@ -92,3 +100,10 @@ module.exports = (sequelize, DataTypes) => {
 // total_harga := qty * harga;
 // RAISE NOTICE 'total_harga value: %', total_harga;
 // END
+
+  return Cart;
+};
+
+
+
+
