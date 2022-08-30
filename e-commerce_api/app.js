@@ -4,8 +4,10 @@ var logger = require('morgan');
 var path = require('path');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-var cartRouter = require('./routes/carts');
-var itemRouter = require('./routes/items');
+var cartsRouter = require('./routes/carts');
+var itemsRouter = require('./routes/items');
+var commentsRouter = require('./routes/comments');
+var notificationsRouter = require('./routes/notifications');
 const fileUpload = require('express-fileupload');
 const mongoose = require('mongoose');
 
@@ -26,7 +28,9 @@ app.use(fileUpload());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/items', itemRouter);
-app.use('/carts', cartRouter);
+app.use('/items', itemsRouter);
+app.use('/carts', cartsRouter);
+app.use('/notifications', notificationsRouter);
+app.use('/comments', commentsRouter);
 
 module.exports = app;
