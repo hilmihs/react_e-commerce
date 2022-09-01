@@ -49,8 +49,6 @@ router.put('/:id', async function (req, res, next) {
       qty: quantity,
       total_harga: quantity * harga_item
     }, {
-      individualHooks: true
-    }, {
       where: {
         id
       },

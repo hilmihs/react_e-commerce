@@ -53,9 +53,16 @@ router.post('/', function (req, res, next) {
 router.put('/:id', async function (req, res, next) {
     try {
         const { title, rate, description, price, brand, detail_product, like } = req.body
-        const data = await models.Item.update({
-            title, rate, description, price, brand, detail_product, like
-        }, {
+        let update = {}
+        if (title) update['title'] = title;
+        if (rate) update['rate'] = parseInt(rate);
+        if (description) update['description'] = description;
+        if (price) update['price'] = parseInt(price);
+        if (brand) update['brand'] = brand;
+        if (detail_product) update['detail_product'] = detail_product;
+        if (like) update['like'] = parseInt(like);
+        console.log(update)
+        const data = await models.Item.update(update, {
             where: {
                 id: req.params.id
             },
