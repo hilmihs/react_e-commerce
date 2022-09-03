@@ -20,7 +20,7 @@ router.post('/', function (req, res, next) {
     let gambar;
     let uploadPath;
     if (!req.files || Object.keys(req.files).length === 0) {
-        return res.status(400).send('No files were uploaded.');
+        console.log('No files were uploaded.');
     }
     gambar = req.files.gambar;
     const image = `A${Date.now()}-${gambar.name}`
@@ -28,24 +28,29 @@ router.post('/', function (req, res, next) {
     uploadPathReact = path.join(__dirname, '/../../e-commerce_app/public/pictures/', 'gambar', image);
     gambar.mv(uploadPathReact, function (err) {
         if (err)
-        console.log('error upload photo to react', err)
+            console.log('error upload photo to react', err)
     })
     gambar.mv(uploadPath, function (err) {
         if (err)
-        console.log('error upload photo to API', err)
+            console.log('error upload photo to API', err)
         const like = 0
-        const { title, rate, description, price, brand, detail_product, image } = req.body
-        models.Item.create(
-            {
-                title, rate, description, price, brand, detail_product,like, image
-            }
-        ).then(function (data) {
+        const { title, rate, description, price, brand, detail_product } = req.body
+        let create = {}
+        if (title)          create['title'] = title;
+        if (rate)           create['rate'] = parseInt(rate);
+        if (description)    create['description'] = description;
+        if (price)          create['price'] = parseInt(price);
+        if (brand)          create['brand'] = brand;
+        if (detail_product) create['detail_product'] = detail_product;
+        if (like)           create['like'] = like;
+        if (image)          create['image'] = image
+        models.Item.create(create).then(function (data) {
             res.json(new Response(data))
         }).catch(() => {
             res.status(500).json(new Response(e, false))
         })
 
-   });
+    });
 
 })
 
@@ -54,13 +59,30 @@ router.put('/:id', async function (req, res, next) {
     try {
         const { title, rate, description, price, brand, detail_product, like } = req.body
         let update = {}
-        if (title) update['title'] = title;
-        if (rate) update['rate'] = parseInt(rate);
-        if (description) update['description'] = description;
-        if (price) update['price'] = parseInt(price);
-        if (brand) update['brand'] = brand;
+        if (title)          update['title'] = title;
+        if (rate)           update['rate'] = parseInt(rate);
+        if (description)    update['description'] = description;
+        if (price)          update['price'] = parseInt(price);
+        if (brand)          update['brand'] = brand;
         if (detail_product) update['detail_product'] = detail_product;
-        if (like) update['like'] = parseInt(like);
+        if (like)           update['like'] = parseInt(like);
+        let gambar;
+        let uploadPath;
+        if (!req.files || Object.keys(req.files).length === 0) {
+            console.log('No files were uploaded.');
+        } else {
+            gambar = req.files.gambar;
+            const image = `A${Date.now()}-${gambar.name}`
+            uploadPath = path.join(__dirname, '/../public', 'gambar', image);
+            uploadPathReact = path.join(__dirname, '/../../e-commerce_app/public/pictures/', 'gambar', image);
+            gambar.mv(uploadPathReact, function (err) {
+                if (err) console.log('error upload photo to react', err)
+                if (image)  update['image'] = image
+            })
+            gambar.mv(uploadPath, function (err) {
+                if (err) console.log('error upload photo to react', err)
+            })
+        }
         console.log(update)
         const data = await models.Item.update(update, {
             where: {

@@ -1,8 +1,8 @@
 import { request } from '../../utils/api'
 
-export const readItem = () => request.get('items')
+export const readItem = (params) => request.get(`items?${new URLSearchParams(params).toString()}`)
 
-export const createItem = (title, rate, description, price, brand, detail_product, image) => {
+export const createItemAsync = (title, rate, description, price, brand, detail_product, image) => {
     request.post('items', {
         title,
         rate,
@@ -15,7 +15,8 @@ export const createItem = (title, rate, description, price, brand, detail_produc
 }
 
 export const updateItem = (id, title, rate, description, price, brand, detail_product, like) => {
-    request.put(`items/${id}`, { title, rate, description, price, brand, detail_product, like })
+    request.put(`items/${id}`, { 
+        title, rate, description, price, brand, detail_product, like })
 }
 
 export const removeItem = id => request.delete(`items/${id}`)
