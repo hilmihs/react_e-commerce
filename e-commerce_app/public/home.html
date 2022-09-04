@@ -63,74 +63,231 @@
         .pagination-style {
             margin: 25px;
         }
+
+        .navbar-icon-top .navbar-nav .nav-link>.fa {
+            position: relative;
+            width: 36px;
+            font-size: 24px;
+        }
+
+        .navbar-icon-top .navbar-nav .nav-link>.fa>.badge {
+            font-size: 0.75rem;
+            position: absolute;
+            right: 0;
+            font-family: sans-serif;
+        }
+
+        .navbar-icon-top .navbar-nav .nav-link>.fa {
+            top: 3px;
+            line-height: 12px;
+        }
+
+        .navbar-icon-top .navbar-nav .nav-link>.fa>.badge {
+            top: -10px;
+        }
+
+        @media (min-width: 576px) {
+            .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link {
+                text-align: center;
+                display: table-cell;
+                height: 70px;
+                vertical-align: middle;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link>.fa {
+                display: block;
+                width: 48px;
+                margin: 2px auto 4px auto;
+                top: 0;
+                line-height: 24px;
+            }
+
+            .navbar-icon-top.navbar-expand-sm .navbar-nav .nav-link>.fa>.badge {
+                top: -7px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link {
+                text-align: center;
+                display: table-cell;
+                height: 70px;
+                vertical-align: middle;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link>.fa {
+                display: block;
+                width: 48px;
+                margin: 2px auto 4px auto;
+                top: 0;
+                line-height: 24px;
+            }
+
+            .navbar-icon-top.navbar-expand-md .navbar-nav .nav-link>.fa>.badge {
+                top: -7px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link {
+                text-align: center;
+                display: table-cell;
+                height: 70px;
+                vertical-align: middle;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link>.fa {
+                display: block;
+                width: 48px;
+                margin: 2px auto 4px auto;
+                top: 0;
+                line-height: 24px;
+            }
+
+            .navbar-icon-top.navbar-expand-lg .navbar-nav .nav-link>.fa>.badge {
+                top: -7px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link {
+                text-align: center;
+                display: table-cell;
+                height: 70px;
+                vertical-align: middle;
+                padding-top: 0;
+                padding-bottom: 0;
+            }
+
+            .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link>.fa {
+                display: block;
+                width: 48px;
+                margin: 2px auto 4px auto;
+                top: 0;
+                line-height: 24px;
+            }
+
+            .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link>.fa>.badge {
+                top: -7px;
+            }
+        }
     </style>
     <title>Home Page</title>
 </head>
-<nav class="navbar-dark navbar-padding" style="background-color: #5cb85c;">
+<!-- <nav class="navbar-dark navbar-padding" style="background-color: #5cb85c;">
     <div class="container-fluid">
         <i class="fa-brands fa-shopify fa-2x icon"></i>
         <a class="navbar-brand title-size" href="#">
 
             E-Commerce
         </a>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+          </form>
     </div>
-</nav>
+</nav> -->
+<div class="container-fluid">
+
+    <nav class="navbar navbar-icon-top navbar-dark navbar-padding" style="background-color: #5cb85c;">
+        <i class="fa-brands fa-shopify fa-2x icon"></i>
+        <a class="navbar-brand title-size" href="#">
+
+            E-Commerce
+        </a>
+        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button> -->
+
+        <div>
+            <!-- <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-home" style="color:#fff"></i>
+                        Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+            </ul> -->
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">
+                        <i class="fa fa-bell" style="color:#fff">
+                            <span class="badge bg-info">11</span>
+                        </i>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+</div>
 
 <body>
     <button type="button" class="btn btn-primary add-button">Add Ads</button>
     <div class="row">
-    <div class="card card-product" style="width: 18rem;">
-        <img class="card-img-top widthSet heightSet" src="./macbook.jpeg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Macbook AIR</h5>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <p class="card-text">Beli Macbook Air M1 di E-Commerce ✓ Cicilan 0% ✓ Cashback ✓ Bebas Ongkir ✓ Laptop Apple
-                dengan Chip Apple M1.</p>
-            <h3>Rp13.399.999,-</h3>
+        <div class="card card-product" style="width: 18rem;">
+            <img class="card-img-top widthSet heightSet" src="./macbook.jpeg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Macbook AIR</h5>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <p class="card-text">Beli Macbook Air M1 di E-Commerce ✓ Cicilan 0% ✓ Cashback ✓ Bebas Ongkir ✓ Laptop
+                    Apple
+                    dengan Chip Apple M1.</p>
+                <h3>Rp13.399.999,-</h3>
+            </div>
+            <div class="card-footer text-muted right-side">
+                <button class="btn light-green ">DETAIL ITEM</button>
+            </div>
         </div>
-        <div class="card-footer text-muted right-side">
-            <button class="btn light-green ">DETAIL ITEM</button>
+        <div class="card card-product" style="width: 18rem;">
+            <img class="card-img-top widthSet heightSet" src="./macbook.jpeg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Macbook AIR</h5>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <p class="card-text">Beli Macbook Air M1 di E-Commerce ✓ Cicilan 0% ✓ Cashback ✓ Bebas Ongkir ✓ Laptop
+                    Apple
+                    dengan Chip Apple M1.</p>
+                <h3>Rp13.399.999,-</h3>
+            </div>
+            <div class="card-footer text-muted right-side">
+                <button class="btn light-green ">DETAIL ITEM</a>
+            </div>
+        </div>
+        <div class="card card-product" style="width: 18rem;">
+            <img class="card-img-top widthSet heightSet" src="./macbook.jpeg" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">Macbook AIR</h5>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star checked"></span>
+                <span class="fa fa-star"></span>
+                <span class="fa fa-star"></span>
+                <p class="card-text">Beli Macbook Air M1 di E-Commerce ✓ Cicilan 0% ✓ Cashback ✓ Bebas Ongkir ✓ Laptop
+                    Apple
+                    dengan Chip Apple M1.</p>
+                <h3>Rp13.399.999,-</h3>
+            </div>
+            <div class="card-footer text-muted right-side">
+                <button class="btn light-green ">DETAIL ITEM</a>
+            </div>
         </div>
     </div>
-    <div class="card card-product" style="width: 18rem;">
-        <img class="card-img-top widthSet heightSet" src="./macbook.jpeg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Macbook AIR</h5>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <p class="card-text">Beli Macbook Air M1 di E-Commerce ✓ Cicilan 0% ✓ Cashback ✓ Bebas Ongkir ✓ Laptop Apple
-                dengan Chip Apple M1.</p>
-            <h3>Rp13.399.999,-</h3>
-        </div>
-        <div class="card-footer text-muted right-side">
-            <button class="btn light-green ">DETAIL ITEM</a>
-        </div>
-    </div>
-    <div class="card card-product" style="width: 18rem;">
-        <img class="card-img-top widthSet heightSet" src="./macbook.jpeg" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">Macbook AIR</h5>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star checked"></span>
-            <span class="fa fa-star"></span>
-            <span class="fa fa-star"></span>
-            <p class="card-text">Beli Macbook Air M1 di E-Commerce ✓ Cicilan 0% ✓ Cashback ✓ Bebas Ongkir ✓ Laptop Apple
-                dengan Chip Apple M1.</p>
-            <h3>Rp13.399.999,-</h3>
-        </div>
-        <div class="card-footer text-muted right-side">
-            <button class="btn light-green ">DETAIL ITEM</a>
-        </div>
-    </div>
-</div>
     <div class="pagination-style">
         <nav aria-label="Page navigation example">
             <ul class="pagination">
