@@ -177,6 +177,11 @@
                 top: -7px;
             }
         }
+
+        .fa-cart-shopping:before,
+        .fa-shopping-cart:before {
+            margin: -5px;
+        }
     </style>
     <title>Home Page</title>
 </head>
@@ -193,44 +198,31 @@
           </form>
     </div>
 </nav> -->
-<div class="container-fluid">
 
-    <nav class="navbar navbar-icon-top navbar-dark navbar-padding" style="background-color: #5cb85c;">
-        <i class="fa-brands fa-shopify fa-2x icon"></i>
-        <a class="navbar-brand title-size" href="#">
-
-            E-Commerce
-        </a>
-        <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button> -->
-
-        <div>
-            <!-- <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        <i class="fa fa-home" style="color:#fff"></i>
-                        Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-            </ul> -->
-            <ul class="navbar-nav ">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">
-                        <i class="fa fa-bell" style="color:#fff">
-                            <span class="badge bg-info">11</span>
-                        </i>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </nav>
-
-</div>
 
 <body>
+    <div class="container-fluid">
+
+        <nav class="navbar navbar-icon-top navbar-dark navbar-padding" style="background-color: #5cb85c;">
+            <i class="fa-brands fa-shopify fa-2x icon"></i>
+            <a class="navbar-brand title-size" href="#">
+
+                E-Commerce
+            </a>
+            <div>
+                <ul class="navbar-nav ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fa fa-cart-shopping" style="color:#fff;">
+                                <span class="badge bg-info">11</span>
+                            </i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+    </div>
     <button type="button" class="btn btn-primary add-button">Add Ads</button>
     <div class="row">
         <div class="card card-product" style="width: 18rem;">
