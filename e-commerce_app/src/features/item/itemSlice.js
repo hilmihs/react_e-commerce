@@ -5,8 +5,7 @@ import {
     CREATE_ITEM,
     UPDATE_ITEM,
     REMOVE_ITEM,
-    RESEND_ITEM,
-    SEARCH_ITEM
+    RESEND_ITEM
 } from '../../utils/constants'
 
 const initialState = {
@@ -35,7 +34,7 @@ export const readItem = createAsyncThunk(
 
 export const createItemAsync = createAsyncThunk(
     CREATE_ITEM,
-    async ({ title, rate, description, price, brand, detail_product }) => {
+    async ({ id, title, rate, description, price, brand, detail_product }) => {
         try {
             const { data } = await API.createItemAsync(title, rate, description, price, brand, detail_product);
             if (data.status === 'SUCCESS') {
@@ -89,24 +88,24 @@ export const removeItem = createAsyncThunk(
     }
 )
 
-export const searchItem = createAsyncThunk(
-    SEARCH_ITEM,
-    async (params) => {
-        try {
-            const { data } = await API.search(params);
-            if (data.status === 'SUCCESS') {
-                return data.data.map(item => {
-                    item.sent = true
-                    return item
-                })
-            } else {
-                return []
-            }
-        } catch (error) {
-            return []
-        }
-    }
-)
+// export const searchItem = createAsyncThunk(
+//     SEARCH_ITEM,
+//     async (params) => {
+//         try {
+//             const { data } = await API.search(params);
+//             if (data.status === 'SUCCESS') {
+//                 return data.data.map(item => {
+//                     item.sent = true
+//                     return item
+//                 })
+//             } else {
+//                 return []
+//             }
+//         } catch (error) {
+//             return []
+//         }
+//     }
+// )
 
 export const itemSlice = createSlice({
     name: 'item',

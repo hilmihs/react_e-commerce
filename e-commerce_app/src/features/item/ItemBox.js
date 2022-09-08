@@ -6,7 +6,7 @@ import Header from '../../components/Header'
 // import styles from './Todo.module.css'
 
 // react hooks
-export default function TodoBox(props) {
+export default function ItemBox(props) {
 
     // const [redirect, setRedirect] = useState(false)
 
@@ -19,25 +19,6 @@ export default function TodoBox(props) {
     return (
         <React.Fragment>
             <Header />
-        <div className={`${styles.todobox} container`}>
-            <LoggedIn />
-            <div className='card'>
-                <div className='card-header text-center'>
-                    <h1>Daftar Kerjaan</h1>
-                </div>
-                <div className='card-body'>
-                    <TodoForm />
-                </div>
-                <hr />
-                <TodoList/>
-                <div className='card-footer'>
-                    <button type='button' className='btn btn-danger' onClick={logout}>Sign Out</button>
-                    {redirect && (
-                        <Navigate to="/login" replace={true} />
-                    )}
-                </div>
-            </div>
-        </div>
         </React.Fragment>
     )
 
