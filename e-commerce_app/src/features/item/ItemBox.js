@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
+import AddButton from '../../components/AddButton'
 import Header from '../../components/Header'
+import ItemList from '../../containers/ItemList'
 // import TodoForm from '../../components/TodoForm'
 // import TodoList from '../../components/TodoList'
 // import { Navigate } from "react-router-dom"
@@ -19,6 +21,8 @@ export default function ItemBox(props) {
     return (
         <React.Fragment>
             <Header />
+            <AddButton />
+            <ItemList />
         </React.Fragment>
     )
 

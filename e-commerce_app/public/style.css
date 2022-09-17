@@ -4,7 +4,7 @@
 
 .card-product {
     margin: 25px;
-
+    width: 20rem !important;
     display: flex;
     flex-direction: column;
     position: relative;
@@ -31,8 +31,8 @@
 
 .light-green {
     color: #fff;
-    background-color: #5cb85c;
-    border-color: #4cae4c;
+    background-color: #5cb85c !important; 
+    border-color: #4cae4c !important;
 }
 
 .orange {
@@ -145,7 +145,7 @@ select.arrows:focus {
 }
 
 .heightSet {
-    height: 400px;
+    height: 200px;
 }
 
 .center {
