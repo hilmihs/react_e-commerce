@@ -12,6 +12,13 @@
     padding: 5px;
 }
 
+.no-padding {
+    padding: 0 !important;
+}
+.navbar-color {
+    background-color: #5cb85c;
+}
+
 .widthSet {
     max-width: 500px;
 }
@@ -30,23 +37,19 @@
 }
 
 .light-green {
-    color: #fff;
+    color: #fff !important;
     background-color: #5cb85c !important; 
     border-color: #4cae4c !important;
 }
 
 .orange {
-    color: #fff;
-    background-color: orange;
-    border-color: orange;
-}
-
-.navbar-padding {
-    padding: 20px;
+    color: #fff !important;
+    background-color: orange !important;
+    border-color: orange !important;
 }
 
 .icon {
-    margin-right: 15px;
+    margin-left: 15px;
     color: white;
 }
 
@@ -60,13 +63,13 @@
 }
 
 .add-table {
-    background-color: #007bff;
-    color: white;
-    font-weight: 500;
+    background-color: #007bff !important;
+    color: white !important;
+    font-weight: 500 !important;
 }
 
 .blue-border {
-    border-color: #007bff;
+    border-color: #007bff !important;
 }
 
 .button-below {
