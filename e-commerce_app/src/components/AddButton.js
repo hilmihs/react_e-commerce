@@ -1,7 +1,8 @@
 import React from "react"
+import { Link } from "react-router-dom"
 const AddButton = () => {
     return(
-        <button class="btn btn-primary add-button">Add Ads</button>
+        <Link to={'add'}><button class="btn btn-primary add-button">Add Ads</button></Link>
     )
 }
 export default AddButton

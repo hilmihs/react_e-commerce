@@ -168,8 +168,8 @@ const CartPage = () => {
       
                           <button type="button" className="btn btn-info btn-block btn-lg">
                             <div className="d-flex justify-content-between white" >
-                              <span className="text-padding">$4818.00</span>
-                              <span>Checkout <i className="fas fa-long-arrow-alt-right ms-2"></i></span>
+                              <span className="text-padding">$4818.00 - </span>
+                              <span>- Checkout<i className="fas fa-long-arrow-alt-right ms-2"></i></span>
                             </div>
                           </button>
       

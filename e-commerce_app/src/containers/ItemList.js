@@ -1,10 +1,11 @@
 
 import React from "react"
+import { Link } from "react-router-dom"
 export default function ItemList() {
     return (
         <div className="row">
         <div className="card card-product">
-            <img className="card-img-top widthSet heightSet" src="./macbook.jpeg" alt="Card image cap" />
+            <img className="card-img-top widthSet heightSet" src="../pictures/macbook.jpeg" alt='img'/>
             <div className="card-body">
                 <h5 className="card-title">Macbook AIR</h5>
                 <span className="fa fa-star checked"></span>
@@ -18,11 +19,13 @@ export default function ItemList() {
                 <h3>Rp13.399.999,-</h3>
             </div>
             <div className="card-footer text-muted right-side">
+            <Link to={'detail'}>
                 <button className="btn btn-primary light-green ">DETAIL ITEM</button>
+                </Link>
             </div>
         </div>
         <div className="card card-product">
-            <img className="card-img-top widthSet heightSet" src="./macbook.jpeg" alt="Card image cap" />
+            <img className="card-img-top widthSet heightSet" src="../pictures/macbook.jpeg" alt='img' />
             <div className="card-body">
                 <h5 className="card-title">Macbook AIR</h5>
                 <span className="fa fa-star checked"></span>
@@ -36,11 +39,13 @@ export default function ItemList() {
                 <h3>Rp13.399.999,-</h3>
             </div>
             <div className="card-footer text-muted right-side">
+            <Link to={'detail'}>
                 <button className="btn btn-primary light-green ">DETAIL ITEM</button>
+                </Link>
             </div>
         </div>
         <div className="card card-product">
-            <img className="card-img-top widthSet heightSet" src="./macbook.jpeg" alt="Card image cap" />
+            <img className="card-img-top widthSet heightSet" src="../pictures/macbook.jpeg" alt='img' />
             <div className="card-body">
                 <h5 className="card-title">Macbook AIR</h5>
                 <span className="fa fa-star checked"></span>
@@ -54,7 +59,10 @@ export default function ItemList() {
                 <h3>Rp13.399.999,-</h3>
             </div>
             <div className="card-footer text-muted right-side">
+                <Link to={'detail'}>
                 <button className="btn btn-primary light-green ">DETAIL ITEM</button>
+                </Link>
+                
             </div>
         </div>
     </div>
