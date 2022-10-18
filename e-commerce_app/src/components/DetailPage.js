@@ -7,7 +7,7 @@ const DetailPage = () => {
             <Header />
             <div className="row-detail box-size">
         <div className="column-detail-left">
-            <img className="photo-detail" src="../pictures/macbook.jpeg" alt="Card cap" />
+            <img className="photo-detail" src="../pictures/macbook.jpeg" alt="Card image cap" />
         </div>
         <div className="column-detail-right">
             <div className="column">
@@ -36,8 +36,8 @@ const DetailPage = () => {
             </div>
         </div>
         <div className="flex">
-            <a className="column-flex" href="detail">Product </a>
-            <a className="column-flex" href="detail">Testimonial</a>
+            <a className="column-flex">Product </a>
+            <a className="column-flex">Testimonial</a>
         </div>
         <hr/>
        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>

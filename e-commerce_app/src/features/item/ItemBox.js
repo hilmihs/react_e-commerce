@@ -1,12 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useState } from 'react'
 import AddButton from '../../components/AddButton'
 import Header from '../../components/Header'
 import ItemList from '../../containers/ItemList'
-import { useDispatch, useSelector } from "react-redux"
-import { selectItems, readItem } from './itemSlice'
+// import TodoForm from '../../components/TodoForm'
+// import TodoList from '../../components/TodoList'
+// import { Navigate } from "react-router-dom"
+// import styles from './Todo.module.css'
 
 // react hooks
-export default function ItemBox() {
+export default function ItemBox(props) {
 
     // const [redirect, setRedirect] = useState(false)
 
@@ -15,25 +17,12 @@ export default function ItemBox() {
     //     localStorage.setItem('user', '')
     //     setRedirect(true)
     // }
-    let items = useSelector(selectItems)
-    const dispatch = useDispatch()
 
-    useEffect(() => {
-        dispatch(readItem())
-    }, [dispatch])
-    console.log(items, 'items')
     return (
         <React.Fragment>
             <Header />
             <AddButton />
-            <div className="row">
-                {items.map((item, index) => <ItemList
-                    key={item.id}
-                    item={item}
-                    no={index + 1}
-                />
-                )}
-            </div>
+            <ItemList />
         </React.Fragment>
     )
 

@@ -18,7 +18,7 @@ export const readItem = createAsyncThunk(
     async (params) => {
         try {
             const { data } = await API.readItem(params);
-            if (data.success) {
+            if (data.status === 'SUCCESS') {
                 return data.data.map(item => {
                     item.sent = true
                     return item
@@ -27,7 +27,7 @@ export const readItem = createAsyncThunk(
                 return []
             }
         } catch (error) {
-            console.log(error)
+            return []
         }
     }
 );
@@ -37,7 +37,7 @@ export const createItemAsync = createAsyncThunk(
     async ({ id, title, rate, description, price, brand, detail_product }) => {
         try {
             const { data } = await API.createItemAsync(title, rate, description, price, brand, detail_product);
-            if (data.success) {
+            if (data.status === 'SUCCESS') {
                 return { id, item: data.data }
             }
         } catch (error) {
@@ -51,7 +51,7 @@ export const resendItem = createAsyncThunk(
     async ({ id, title, rate, description, price, brand, detail_product }) => {
         try {
             const { data } = await API.createItemAsync(title, rate, description, price, brand, detail_product);
-            if (data.success) {
+            if (data.status === 'SUCCESS') {
                 return { id, item: data.data }
             }
         } catch (error) {
@@ -65,7 +65,7 @@ export const updateItem = createAsyncThunk(
     async ({ id, title, rate, description, price, brand, detail_product, like }) => {
         try {
             const { data } = await API.updateItem(id, title, rate, description, price, brand, detail_product, like);
-            if (data.success) {
+            if (data.status === 'SUCCESS') {
                 return data.data
             }
         } catch (error) {
@@ -79,7 +79,7 @@ export const removeItem = createAsyncThunk(
     async (id) => {
         try {
             const { data } = await API.removeItem(id);
-            if (data.success) {
+            if (data.status === 'SUCCESS') {
                 return { id, item: data.data }
             }
         } catch (error) {
@@ -93,7 +93,7 @@ export const removeItem = createAsyncThunk(
 //     async (params) => {
 //         try {
 //             const { data } = await API.search(params);
-//             if (data.success) {
+//             if (data.status === 'SUCCESS') {
 //                 return data.data.map(item => {
 //                     item.sent = true
 //                     return item
@@ -137,7 +137,7 @@ export const itemSlice = createSlice({
             .addCase(readItem.fulfilled, (state, action) => {
                 state.status = 'idle';
                 state.items = action.payload
-               
+
             })
             .addCase(createItemAsync.fulfilled, (state, action) => {
                 state.status = 'idle';
