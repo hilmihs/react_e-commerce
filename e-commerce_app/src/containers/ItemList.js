@@ -1,62 +1,43 @@
 
 import React from "react"
 import { Link } from "react-router-dom"
-export default function ItemList() {
+import { NumericFormat } from 'react-number-format';
+export default function ItemList(props) {
+    function currencyFormat(num) {
+        return 'Rp' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, 'Rp1,')
+     }
+    console.log(props, 'jalan')
+    // const [item, setItem] = useState({
+    //                  id: props.item.id ? props.item.id : '',
+    //                 title: props.item.title || '',
+    //                 rate: props.item.rate || '',
+    //                 description: props.item.description || '',
+    //                 price: props.item.price || '',
+    //                 brand: props.item.brand || '',
+    //                 detail_product: props.item.detail_product || '',
+    //                 like: props.item.like || '',
+    //                 image: props.item.image || ''
+    // })
+    // useEffect(() => {
+    //   setItem({
+    //     ...item,
+    //     props
+    //   })
+    // }, [props])
+    
     return (
-        <div className="row">
-        <div className="card card-product">
-            <img className="card-img-top widthSet heightSet" src="../pictures/macbook.jpeg" alt='img'/>
-            <div className="card-body">
-                <h5 className="card-title">Macbook AIR</h5>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                <p className="card-text">Beli Macbook Air M1 di E-Commerce ✓ Cicilan 0% ✓ Cashback ✓ Bebas Ongkir ✓ Laptop
-                    Apple
-                    dengan Chip Apple M1.</p>
-                <h3>Rp13.399.999,-</h3>
-            </div>
-            <div className="card-footer text-muted right-side">
-            <Link to={'detail'}>
-                <button className="btn btn-primary light-green ">DETAIL ITEM</button>
-                </Link>
-            </div>
-        </div>
+        
         <div className="card card-product">
             <img className="card-img-top widthSet heightSet" src="../pictures/macbook.jpeg" alt='img' />
             <div className="card-body">
-                <h5 className="card-title">Macbook AIR</h5>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                <p className="card-text">Beli Macbook Air M1 di E-Commerce ✓ Cicilan 0% ✓ Cashback ✓ Bebas Ongkir ✓ Laptop
-                    Apple
-                    dengan Chip Apple M1.</p>
-                <h3>Rp13.399.999,-</h3>
-            </div>
-            <div className="card-footer text-muted right-side">
-            <Link to={'detail'}>
-                <button className="btn btn-primary light-green ">DETAIL ITEM</button>
-                </Link>
-            </div>
-        </div>
-        <div className="card card-product">
-            <img className="card-img-top widthSet heightSet" src="../pictures/macbook.jpeg" alt='img' />
-            <div className="card-body">
-                <h5 className="card-title">Macbook AIR</h5>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star checked"></span>
-                <span className="fa fa-star"></span>
-                <span className="fa fa-star"></span>
-                <p className="card-text">Beli Macbook Air M1 di E-Commerce ✓ Cicilan 0% ✓ Cashback ✓ Bebas Ongkir ✓ Laptop
-                    Apple
-                    dengan Chip Apple M1.</p>
-                <h3>Rp13.399.999,-</h3>
+                <h5 className="card-title">{props.item.title} {props.item.brand}</h5>
+               {props.item.rate > 0 ? <span className="fa fa-star checked"></span> : <span className="fa fa-star"></span>} 
+                {props.item.rate > 1 ? <span className="fa fa-star checked"></span> : <span className="fa fa-star"></span>} 
+                {props.item.rate > 2 ? <span className="fa fa-star checked"></span> : <span className="fa fa-star"></span>} 
+                {props.item.rate > 3 ? <span className="fa fa-star checked"></span> : <span className="fa fa-star"></span>} 
+                {props.item.rate > 4 ? <span className="fa fa-star checked"></span> : <span className="fa fa-star"></span>} 
+                <p className="card-text">{props.item.description}</p>
+                <h3><NumericFormat value={props.item.price} displayType={'text'} thousandSeparator={true} prefix={'Rp'} /></h3>
             </div>
             <div className="card-footer text-muted right-side">
                 <Link to={'detail'}>
@@ -65,6 +46,5 @@ export default function ItemList() {
                 
             </div>
         </div>
-    </div>
     )
 }
