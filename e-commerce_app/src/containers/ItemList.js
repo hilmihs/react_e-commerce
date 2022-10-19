@@ -1,12 +1,8 @@
 
 import React from "react"
-import { Link } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { NumericFormat } from 'react-number-format';
 export default function ItemList(props) {
-    function currencyFormat(num) {
-        return 'Rp' + num.toFixed(2).replace(/(\d)(?=(\d{3})+(?!\d))/g, 'Rp1,')
-     }
-    console.log(props, 'jalan')
     // const [item, setItem] = useState({
     //                  id: props.item.id ? props.item.id : '',
     //                 title: props.item.title || '',
@@ -24,7 +20,10 @@ export default function ItemList(props) {
     //     props
     //   })
     // }, [props])
-    
+    const navigate = useNavigate();
+    const detail = () => {
+        navigate('/detail', { replace: true, state: props.item });
+          }
     return (
         
         <div className="card card-product">
@@ -40,9 +39,9 @@ export default function ItemList(props) {
                 <h3><NumericFormat value={props.item.price} displayType={'text'} thousandSeparator={true} prefix={'Rp'} /></h3>
             </div>
             <div className="card-footer text-muted right-side">
-                <Link to={'detail'}>
-                <button className="btn btn-primary light-green ">DETAIL ITEM</button>
-                </Link>
+                {/* <Link to={'detail'}> */}
+                <button className="btn btn-primary light-green" onClick={detail}>DETAIL ITEM</button>
+                {/* </Link> */}
                 
             </div>
         </div>

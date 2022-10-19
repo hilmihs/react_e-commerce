@@ -21,7 +21,6 @@ export default function ItemBox() {
     useEffect(() => {
         dispatch(readItem())
     }, [dispatch])
-    console.log(items, 'items')
     return (
         <React.Fragment>
             <Header />
