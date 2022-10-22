@@ -25,7 +25,7 @@ router.post('/', async function (req, res, next) {
     let where = { id: ItemId };
     const dataId = await models.Item.findOne({ where: where })
     const price = dataId.dataValues.price;
-    const qty = 1;
+    const qty = req.body.qty ? req.body.qty : 1;
     const data = await models.Cart.create({ ItemId, total_harga: qty * price, harga_item: price }, {
       individualHooks: true
     })

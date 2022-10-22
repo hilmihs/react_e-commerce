@@ -1,12 +1,12 @@
-import React from "react"
+import React, {useState} from "react"
 import Header from "./Header"
 import { useLocation } from "react-router-dom"
 import { NumericFormat } from 'react-number-format';
 const DetailPage = () => {
-   
+    const [viewDetail, setViewDetail] = useState(true)
     const location = useLocation();
-    console.log(location.state)
-    return (
+if (viewDetail) {
+ return (
         <div>
           <div>
             <Header />
@@ -60,6 +60,9 @@ const DetailPage = () => {
     </div>
       </div >
     )
+
+}
+   
 }
 
 export default DetailPage
